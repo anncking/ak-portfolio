@@ -70,6 +70,16 @@ footer {
     margin-top: 1rem;
 }
 
+.table-4-container {
+	width: 100%;
+	display: inline-flex;
+}
+
+.section-4 {
+	width: 25%;
+	float: left;
+}
+
 /* Basic responsiveness for smaller screens */
 @media (max-width: 600px) {
     main {
