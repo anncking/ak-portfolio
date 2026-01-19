@@ -2,7 +2,7 @@
 * {
     box-sizing: border-box; /* Ensures padding/borders are included in element's total width/height */
     margin: 0;
-    padding: 0;
+    padding: 10px;
 }
 
  html {
@@ -87,12 +87,17 @@ footer {
 	padding: 15px;
 }
 
+.section-4 img{
+	max-width: 300px;
+}
+
 /* Basic responsiveness for smaller screens */
 @media (max-width: 600px) {
     main {
         flex-direction: column; /* Stack main content and sidebar vertically on small screens */
     }
 }
+
 
 
 
