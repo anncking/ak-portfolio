@@ -91,6 +91,9 @@ footer {
 	max-width: 400px;
 }
 @media (max-width: 768px) {
+	.table-4-container {
+		display: block;
+	}
 	.section-4 {
 	width: 100%;
 	float: none;
@@ -106,6 +109,7 @@ footer {
         flex-direction: column; /* Stack main content and sidebar vertically on small screens */
     }
 }
+
 
 
 
