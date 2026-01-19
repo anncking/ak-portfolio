@@ -5,6 +5,12 @@
     padding: 0;
 }
 
+ html {
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
 body {
     font-family: sans-serif;
     line-height: 1.4; /* Set a reasonable line height */
@@ -87,5 +93,6 @@ footer {
         flex-direction: column; /* Stack main content and sidebar vertically on small screens */
     }
 }
+
 
 
