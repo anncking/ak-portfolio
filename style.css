@@ -29,7 +29,7 @@ header {
 nav ul {
     list-style: none;
     background-color: #444;
-    overflow: hidden; /* Clear floats */
+    overflow: auto; /* Clear floats */
 }
 
 nav ul li {
@@ -93,6 +93,7 @@ footer {
         flex-direction: column; /* Stack main content and sidebar vertically on small screens */
     }
 }
+
 
 
 
