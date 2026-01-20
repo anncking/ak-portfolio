@@ -28,4 +28,3 @@ let slideIndex = 1;
             // Display the current slide (adjusted for zero-based array index)
             slides[slideIndex - 1].style.display = "block";
         }
-    </script>
