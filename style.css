@@ -49,9 +49,12 @@ nav ul li a:hover {
 }
 
 main {
-    display: flex; /* Use Flexbox for layout */
+    /* display: flex;  Use Flexbox for layout */
     margin-top: 1rem;
-    gap: 1rem; /* Space between main content and sidebar */
+	max-width: 900px;
+	margin-left: auto;
+	margin-right: auto;
+    /* gap: 1rem;  Space between main content and sidebar */
 }
 
 article, aside {
@@ -150,6 +153,7 @@ footer {
         .prev:hover, .next:hover {
             background-color: rgba(0,0,0,1);
         }
+
 
 
 
