@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vertical Timeline Parallax Effect</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: sans-serif;
+      background: #fafafa;
+      position: relative;
+      min-height: 200vh;
+    }
+    .container {
+      position: relative;
+      display: flex;
+      width: 100%;
+      min-height: 120vh;
+    }
+    /* The vertical line */
+    .timeline {
+      position: fixed;
+      top: 0;
+      right: 5vw;
+      height: 100vh;
+      width: 4px;
+      background: linear-gradient(to bottom, #cee, #229edb);
+      z-index: 0;
+      border-radius: 2px;
+    }
+    .circle-list {
+      position: fixed;
+      right: 5vw;
+      top: 0;
+      height: 100vh;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      pointer-events: none;
+    }
+    .circle {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #fff;
+      border: 4px solid #229edb;
+      margin: 0 auto;
+      box-shadow: 0 2px 8px #0001;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s, border-width 0.3s;
+      font-weight: 400;
+      font-size: 1.1em;
+      color: #229edb;
+      user-select: none;
+    }
+    .circle.active {
+      transform: scale(1.25);
+      border-width: 7px;
+      font-weight: 700;
+      background: #229edb;
+      color: #fff;
+      box-shadow: 0 4px 16px #229edb33;
+    }
+    /* Content blocks */
+    .content-list {
+      width: 60vw;
+      margin-left: 5vw;
+      display: flex;
+      flex-direction: column;
+      gap: 30vh;
+      padding: 10vh 0;
+    }
+    .content-block {
+      min-height: 40vh;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px #0003;
+      padding: 4em 2em;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      font-size: 1.3em;
+      transition: box-shadow 0.3s;
+    }
+    .content-block.active {
+      box-shadow: 0 4px 24px #229edb50;
+      border-left: 6px solid #229edb;
+    }
+    @media (max-width: 800px) {
+      .content-list { width: 85vw; }
+      .timeline, .circle-list { right: 2vw; }
+    }
+  </style>
+</head>
+<body>
+  <div class="timeline"></div>
+  <div class="circle-list" id="circleList">
+    <div class="circle">1</div>
+    <div class="circle">2</div>
+    <div class="circle">3</div>
+    <div class="circle">4</div>
+  </div>
+  <div class="container">
+    <div class="content-list" id="contentList">
+      <div class="content-block">Section 1: Introduction</div>
+      <div class="content-block">Section 2: Parallax Effects</div>
+      <div class="content-block">Section 3: Intersection Observer</div>
+      <div class="content-block">Section 4: Summary &amp; Outro</div>
+    </div>
+  </div>
+  <script>
+    // Get content and circles
+    const contentBlocks = Array.from(document.querySelectorAll('.content-block'));
+    const circles = Array.from(document.querySelectorAll('.circle-list .circle'));
+
+    function inCenter(viewport, element) {
+      const rect = element.getBoundingClientRect();
+      const verticalCenter = (rect.top + rect.bottom) / 2;
+      return (
+        verticalCenter > viewport.innerHeight * 0.42 &&
+        verticalCenter < viewport.innerHeight * 0.58
+      );
+    }
+
+    function updateActive() {
+      let found = false;
+      contentBlocks.forEach((block, idx) => {
+        if (!found && inCenter(window, block)) {
+          block.classList.add('active');
+          circles[idx].classList.add('active');
+          found = true;
+        } else {
+          block.classList.remove('active');
+          circles[idx].classList.remove('active');
+        }
+      });
+    }
+    window.addEventListener('scroll', updateActive);
+    window.addEventListener('resize', updateActive);
+    window.addEventListener('DOMContentLoaded', updateActive);
+  </script>
+</body>
+</html>
