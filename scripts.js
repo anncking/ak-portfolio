@@ -31,7 +31,7 @@ let slideIndex = 1;
 /* Menu drop down */
 /* When the user clicks on the button, 
 toggle between hiding and showing the dropdown content */
-function myFunction() {
+function dropDown() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
 
