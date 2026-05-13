@@ -88,6 +88,9 @@ iframe {
 
 .art-img {
 	max-width: 450px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .table-4-container {
