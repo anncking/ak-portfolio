@@ -51,7 +51,7 @@ window.onclick = function(event) {
 
 // Script for the read more button
 //document.getElementById('readMoreBtn').addEventListener('click', function() {
-function readMore(artcileNum) {
+function readMore(articleNum) {
   const post = document.getElementById(articleNum);
         
   if (post.classList.contains('trimmed')) {
