@@ -5,6 +5,12 @@
     padding: 10px;
 }
 
+:root {
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --trimmed-height: 250px; /* Adjust this to control where the fade starts */
+}
+
  html {
     font-family: sans-serif;
     -ms-text-size-adjust: 100%;
@@ -12,10 +18,10 @@
 }
 
 body {
-    font-family: sans-serif;
+	background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: system-ui, sans-serif;
     line-height: 1.4; /* Set a reasonable line height */
-    background-color: #f4f4f4;
-    color: #333;
     padding: 10px;
 }
 
@@ -208,7 +214,63 @@ iframe {
 
 .show {display: block;}
 
+/* Style rules for fade and read more in the posts*/
+.post-container {
+  max-width: 650px;
+  margin: 40px auto;
+  position: relative;
+}
 
+/* The Post Wrapper */
+.blog-post {
+  position: relative;
+  overflow: hidden;
+  line-height: 1.6;
+  transition: max-height 0.5s ease-in-out;
+}
 
+/* State 1: Trimmed with Fade Effect */
+.blog-post.trimmed {
+  max-height: var(--trimmed-height);
+}
+
+.blog-post.trimmed::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  /* Creates a fade that starts 30% from the top of the container's visible area */
+  height: 70%; 
+  background: linear-gradient(to bottom, transparent, var(--bg-color) 90%);
+  pointer-events: none; /* Allows users to highlight text underneath if needed */
+}
+
+/* State 2: Fully Expanded */
+.blog-post.expanded {
+  max-height: 2000px; /* A safe maximum height for smooth transition */
+}
+
+.blog-post.expanded::after {
+  display: none; /* Remove the fade when expanded */
+}
+
+/* The Button */
+.read-more-btn {
+  display: block;
+  margin: 20px auto 0;
+  padding: 10px 24px;
+  background-color: #0076ff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.read-more-btn:hover {
+  background-color: #0056b3;
+}
 
 
