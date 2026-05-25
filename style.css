@@ -59,7 +59,8 @@ nav ul li a:hover {
 }
 
 main {
-    display: flex; /* Use Flexbox for layout */
+    /* display: flex;  Use Flexbox for layout */
+	display: block;
     margin-top: 1rem;
     gap: 1rem;  /* Space between main content and sidebar */
 }
@@ -70,7 +71,10 @@ article, aside {
 }
 
 article {
-    flex: 3; /* Main content takes up more space */
+    /* flex: 3;  Main content takes up more space */
+	width: 70%;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 aside {
@@ -129,8 +133,12 @@ iframe {
 /* Basic responsiveness for smaller screens */
 @media (max-width: 600px) {
     main {
-        flex-direction: column; /* Stack main content and sidebar vertically on small screens */
+        /* flex-direction: column;  Stack main content and sidebar vertically on small screens */
     }
+	article {
+		width: 90%;
+	}
+	
 }
 
 /* CSS for the slider styling */
