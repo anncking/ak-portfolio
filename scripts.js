@@ -52,7 +52,7 @@ window.onclick = function(event) {
 // Script for the read more button
 document.getElementById('readMoreBtn').addEventListener('click', function() {
   const post = document.getElementById('blogPost');
-  alert("here");
+        
   if (post.classList.contains('trimmed')) {
     post.classList.remove('trimmed');
     post.classList.add('expanded');
