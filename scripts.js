@@ -53,15 +53,15 @@ window.onclick = function(event) {
 //document.getElementById('readMoreBtn').addEventListener('click', function() {
 function readMore(articleNum) {
   const post = document.getElementById(articleNum);
-        
+   const readbtn = document.getElementById('readMoreBtn');     
   if (post.classList.contains('trimmed')) {
     post.classList.remove('trimmed');
     post.classList.add('expanded');
-    this.textContent = 'Read Less';
+    readbtn.textContent = 'Read Less';
   } else {
     post.classList.remove('expanded');
     post.classList.add('trimmed');
-    this.textContent = 'Read More';
+    readbtn.textContent = 'Read More';
     
     // Smoothly scroll back to the top of the post if they close it
     post.scrollIntoView({ behavior: 'smooth' });
