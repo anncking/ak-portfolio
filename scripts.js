@@ -48,3 +48,21 @@ window.onclick = function(event) {
     }
   }
 }
+
+// Script for the read more button
+document.getElementById('readMoreBtn').addEventListener('click', function() {
+  const post = document.getElementById('blogPost');
+  
+  if (post.classList.contains('trimmed')) {
+    post.classList.remove('trimmed');
+    post.classList.add('expanded');
+    this.textContent = 'Read Less';
+  } else {
+    post.classList.remove('expanded');
+    post.classList.add('trimmed');
+    this.textContent = 'Read More';
+    
+    // Smoothly scroll back to the top of the post if they close it
+    post.scrollIntoView({ behavior: 'smooth' });
+  }
+});
