@@ -66,4 +66,4 @@ function readMore(artcileNum) {
     // Smoothly scroll back to the top of the post if they close it
     post.scrollIntoView({ behavior: 'smooth' });
   }
-});
+}
